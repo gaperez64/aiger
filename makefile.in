@@ -38,6 +38,7 @@ bliftoaig \
 smvtoaig \
 soltostim \
 wrapstim \
+bfuntots \
 @AIGDEPTARGET@ \
 @AIGBMCTARGET@
 
@@ -125,6 +126,8 @@ soltostim: aiger.o soltostim.o makefile
 	$(CC) $(CFLAGS) -o $@ soltostim.o aiger.o
 wrapstim: aiger.o wrapstim.o makefile
 	$(CC) $(CFLAGS) -o $@ wrapstim.o aiger.o
+bfuntots: aiger.o bfuntots.o makefile
+	$(CC) $(CFLAGS) -o $@ bfuntots.o aiger.o
 
 aigbmc.o: aiger.h aigbmc.c makefile @AIGBMCHDEPS@
 	$(CC) @AIGBMCFLAGS@ -c aigbmc.c
@@ -164,6 +167,7 @@ simpaig.o: simpaig.h simpaig.c makefile
 smvtoaig.o: smvtoaig.c aiger.h makefile
 soltostim.o: soltostim.c aiger.h makefile
 wrapstim.o: wrapstim.c aiger.h makefile
+bfuntots.o: bfuntots.c aiger.h makefile
 
 clean:
 	rm -f *.o 
